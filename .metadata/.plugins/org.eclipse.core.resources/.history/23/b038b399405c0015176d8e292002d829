@@ -1,0 +1,58 @@
+
+public class DynamicProgrammingQuestions {
+	
+	public static void main(String[] args) {
+		int[] arr = new int[]{7, 2, 3, 1, 5, 8, 9, 6};
+		int output = findMaxLengthOfSubsequence(arr);
+		//System.out.println(output);
+	}
+	
+	/**
+	 * A sub-array has one number of some continuous numbers. 
+	 * Given an integer array with positive numbers and negative numbers, 
+	 * get the maximum sum of all sub-arrays. Time complexity should be O(n). 
+	 * For example, in the array {1, -2, 3, 10, -4, 7, 2, -5}, its sub-array 
+	 * {3, 10, -4, 7, 2} has the maximum sum 18.
+	 * @param arr
+	 * @return
+	 */
+	public static int maxSumOfAllSubArrays(int[] arr) {
+		if(arr.length == 0) { return 0; }
+		if(arr.length == 1) { return arr[0]; }
+		
+		for(int i = 0; i < arr.length; i++) {
+			
+		}
+		return 0;
+	}
+
+	/**
+	 * Given an unsorted array, find the max length of subsequence in 
+	 * which the numbers are in incremental order. 
+	 * For example: If the input array is {7, 2, 3, 1, 5, 8, 9, 6}, 
+	 * a subsequence with the most numbers in incremental order is {2, 3, 5, 8, 9} 
+	 * and the expected output is 5.
+	 */
+	public static int findMaxLengthOfSubsequence(int[] arr) {
+		if(arr.length == 0) { return 0; }
+		if(arr.length == 1) { return arr[0]; }
+		int i = 0;
+		int maxSubSequenceLength = 0;
+		int maxSubSequenceSoFar = 0;
+		while(i < arr.length-1) {
+			if(arr[i] < arr[i+1]) {
+				maxSubSequenceSoFar++;
+				System.out.println(arr[i]);
+				if(maxSubSequenceSoFar > maxSubSequenceLength) {
+					maxSubSequenceLength = maxSubSequenceSoFar;
+				}
+			}
+			else 
+			{
+				maxSubSequenceSoFar = 0;
+			}
+			i++;
+		}
+		return maxSubSequenceLength;
+	}
+}
